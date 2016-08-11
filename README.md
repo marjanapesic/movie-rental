@@ -63,10 +63,11 @@ password: **testtest**
 
 
 
-
-
 **API**
 ---
+
+
+----------
 
 
 **Get Movie**
@@ -94,6 +95,11 @@ Sample Call:
     curl -H 'Authorization: Basic dGVzdEB0ZXN0LmNvbTp0ZXN0dGVzdA==' -H "Content-type: application/json" 'http://casumotest/movie/id/12'
 
  
+
+
+----------
+
+
  
 **Get Movies**
 Returns json data about all movies.
@@ -127,6 +133,11 @@ or
 Optional parameter availability when set to 1 passes additional field for each movie - current availability count.
  
  
+
+
+----------
+
+
  
 **Create Movie**
 Allows movie creation.
@@ -156,6 +167,10 @@ code 401 Unauthorised
 Sample Call:
 
     curl —XPOST -H 'Authorization: Basic dGVzdEB0ZXN0LmNvbTp0ZXN0dGVzdA==' -H "Content-type: application/json" -d '{ "title": "Lepa sela lepo gore", "releaseDate": "2000-01-02","numberOfCopies": 5}' 'http://casumotest/movie'
+
+
+----------
+
 
  
 **Update Movies**
@@ -194,6 +209,11 @@ Number of copies cannot be lower than number of movies rented at the moment (1)
 example value is 1 - represent number of currently rented copies - integer
  
  
+
+
+----------
+
+
  
 **Get Movie Rental price**
 Returns price of one movie rental in json format.
@@ -227,6 +247,11 @@ Sample Call:
 Price will be calculated regardless of movie availability.
  
  
+
+
+----------
+
+
  
 **Get Movie Rentals prices**
 Returns prices for multiple movie rentals in json format.
@@ -256,6 +281,10 @@ Sample Call:
 Notes:
 If received ids that do not exist status 200 without content for non-existing ids will be returned
  
+ 
+
+----------
+
  
 **Rent Movie**
 Allows one movie to be rented.
@@ -290,6 +319,11 @@ Sample Call:
 curl -XPOST -H 'Authorization: Basic dGVzdEB0ZXN0LmNvbTp0ZXN0dGVzdA==' -H "Content-type: application/json" 'http://casumotest/movie-price/ids/11,12/end-date/2016-08-17'
  
  
+
+
+----------
+
+
  
 **Return Movie**
 Allows one movie to be rented.
