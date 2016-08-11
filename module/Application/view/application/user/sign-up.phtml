@@ -1,0 +1,20 @@
+<div>
+    <?php $this->form->prepare(); ?>
+    <?= $this->form()->openTag($this->form); ?>
+    <h3>
+        <strong><?= 'Create user'; ?></strong>
+    </h3>
+
+    <?= $this->formLabel($this->form->get('email')); ?>
+    <?= $this->formEmail($this->form->get('email')); ?><br/>
+    <?= $this->formElementErrors($this->form->get('email')); ?><br/>
+
+    <?= $this->formLabel($this->form->get('password')); ?>
+    <?= $this->formPassword($this->form->get('password')); ?>
+    <?= $this->formElementErrors($this->form->get('password')); ?><br/>
+
+    <?= $this->formInput($this->form->get('submitButton')); ?>
+
+    <?= $this->form()->closeTag(); ?>
+</div>
+

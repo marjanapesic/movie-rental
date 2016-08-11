@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+
+        <div>
+            <?php $this->form->prepare();?>
+            <?= $this->form()->openTag($this->form);?>
+            <h3>
+                <strong><?=$this->translate('Add Movie'); ?></strong>
+            </h3>
+
+            <?= $this->formLabel()->openTag($this->form->get('title')); ?>
+            <?= $this->translate('Title')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formText($this->form->get('title')); ?><br/>
+            <?= $this->formElementErrors($form->get('title'));?><br/>
+
+            <?= $this->formLabel()->openTag($this->form->get('releaseDate')); ?>
+            <?= $this->translate('Release Date')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formDate($this->form->get('releaseDate')); ?><br/>
+            <?= $this->formElementErrors($form->get('releaseDate'));?><br/>
+
+            <?= $this->formLabel()->openTag($this->form->get('numberOfCopies')); ?>
+            <?= $this->translate('Number of Copies')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formNumber($this->form->get('numberOfCopies')); ?><br/>
+            <?= $this->formElementErrors($form->get('numberOfCopies'));?><br/>
+
+            <?= $this->formRow($this->form->get('submitButton')); ?>
+        </div>
+
+        <?= $this->form()->closeTag();?>
+    </div>
+</div>

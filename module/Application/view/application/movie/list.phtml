@@ -1,0 +1,35 @@
+<div>
+    <?php
+    if(count($this->movies)){?>
+
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Release Date</td>
+                <td>Number Of Available Copies</td>
+            </tr>
+
+            <?php
+
+            foreach ($this->movies as $movie) { ?>
+                <tr>
+                    <td><a href="/edit?id=<?=$movie['movieId']?>"><?= $movie['title'] ?></a></td>
+                    <td><?php if(isset($movie['releaseDate'])) echo $movie['releaseDate']->format('Y-m-d') ?></td>
+                    <td><?= $movie['availabilityCount'] ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+
+        </table>
+
+    <?php
+    }
+
+
+    else {
+        echo $this->translate("No movies. Click here to add movie.");
+    }?>
+    <a href="/add">Add Movie</a>
+
+</div>

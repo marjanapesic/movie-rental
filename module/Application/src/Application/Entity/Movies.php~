@@ -1,0 +1,47 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Movies
+ *
+ * @ORM\Table(name="movies", indexes={@ORM\Index(name="idx_title", columns={"title"})})
+ * @ORM\Entity
+ */
+class Movies
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="movie_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $movieId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="release_date", type="date", nullable=true)
+     */
+    private $releaseDate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number_of_copies", type="integer", nullable=true)
+     */
+    private $numberOfCopies = '0';
+
+
+}
+

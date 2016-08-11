@@ -1,0 +1,48 @@
+<div id="content-login">
+
+    <?php $this->form->prepare(); ?>
+    <?php $this->form->setAttribute('action', 'login'); ?>
+    <?= $this->form()->openTag($this->form); ?>
+    <h3>
+        <strong><?= 'Enter email and password'; ?></strong>
+    </h3>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>
+                <?= $this->formLabel()->openTag($this->form->get('email')); ?>
+                <?= $this->translate('Email') ?>
+                <?= $this->formLabel()->closeTag(); ?>
+            </th>
+            <td><?php echo $this->formRow($this->form->get('email')); ?> </td>
+        </tr>
+
+        <tr>
+            <th>
+                <?= $this->formLabel()->openTag($this->form->get('password')); ?>
+                <?= $this->translate('Password') ?>
+                <?= $this->formLabel()->closeTag(); ?>
+            </th>
+            <td><?php echo $this->formRow($this->form->get('password')); ?> </td>
+        </tr>
+
+
+        <tr>
+            <td colspan=2><?php echo $this->formInput($this->form->get('buttonLogin')); ?> </td>
+        </tr>
+        </tbody>
+    </table>
+    <?= $this->form()->closeTag(); ?>
+
+
+
+
+
+    <div>
+        <a href="/sign-up">
+            <?php echo 'Sign up' ?>
+        </a>
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SystemSettings
+ *
+ * @ORM\Table(name="system_settings")
+ * @ORM\Entity
+ */
+class SystemSettings
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="setting_name", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $settingName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="setting_value", type="string", length=255, nullable=true)
+     */
+    private $settingValue;
+
+
+}
+

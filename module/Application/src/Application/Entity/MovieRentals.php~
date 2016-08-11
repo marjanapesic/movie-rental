@@ -1,0 +1,102 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MovieRentals
+ *
+ * @ORM\Table(name="movie_rentals", indexes={@ORM\Index(name="dates", columns={"start_date", "end_date", "return_date"}), @ORM\Index(name="fk_movie_rentals_movie", columns={"movie_id"}), @ORM\Index(name="fk_movie_rentals_user_id", columns={"user_id"})})
+ * @ORM\Entity
+ */
+class MovieRentals
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="movie_rental_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $movieRentalId;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="date", nullable=false)
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="date", nullable=false)
+     */
+    private $endDate;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="price_amount", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $priceAmount;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price_currency", type="string", length=7, nullable=false)
+     */
+    private $priceCurrency;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="return_date", type="date", nullable=true)
+     */
+    private $returnDate;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="subcharge_amount", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $subchargeAmount;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subcharge_currency", type="string", length=7, nullable=true)
+     */
+    private $subchargeCurrency;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bonus_points", type="integer", nullable=true)
+     */
+    private $bonusPoints = '0';
+
+    /**
+     * @var \Application\Entity\Movies
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Movies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="movie_id", referencedColumnName="movie_id")
+     * })
+     */
+    private $movie;
+
+    /**
+     * @var \Application\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
+     * })
+     */
+    private $user;
+
+
+}
+

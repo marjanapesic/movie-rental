@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+
+        <div>
+            <?php $this->form->prepare();?>
+            <?= $this->form()->openTag($this->form);?>
+            <h3>
+                <strong><?=$this->translate('Edit Movie'); ?></strong>
+            </h3>
+
+            <?php
+                /** @var Application\Form\EditMovie $form */
+                $form = $this->form;
+            ?>
+
+            <?= $this->formRow($form->get($form::FIELD_MOVIE_ID)); ?>
+
+            <?= $this->formLabel()->openTag($form->get($form::FIELD_TITLE)); ?>
+            <?= $this->translate('Title')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formText($form->get($form::FIELD_TITLE)); ?><br/>
+            <?= $this->formElementErrors($form->get($form::FIELD_TITLE));?><br/>
+
+            <?= $this->formLabel()->openTag($form->get($form::FIELD_RELEASE_DATE)); ?>
+            <?= $this->translate('Release Date')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formDate($form->get($form::FIELD_RELEASE_DATE)); ?><br/>
+            <?= $this->formElementErrors($form->get($form::FIELD_RELEASE_DATE));?><br/>
+
+            <?= $this->formLabel()->openTag($form->get($form::FIELD_NUMBER_OF_COPIES)); ?>
+            <?= $this->translate('Number of Copies')?>
+            <?= $this->formLabel()->closeTag(); ?>
+            <?= $this->formNumber($form->get($form::FIELD_NUMBER_OF_COPIES)); ?><br/>
+            <?= $this->formElementErrors($form->get($form::FIELD_NUMBER_OF_COPIES));?><br/>
+
+            <?= $this->formRow($form->get($form::SUBMIT_BUTTON)); ?>
+        </div>
+
+        <?= $this->form()->closeTag();?>
+    </div>
+</div>

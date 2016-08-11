@@ -1,0 +1,57 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MovieTypeAssignments
+ *
+ * @ORM\Table(name="movie_type_assignments", indexes={@ORM\Index(name="fk_movie", columns={"movie_id"}), @ORM\Index(name="fk_movie_type", columns={"movie_type_identifier"})})
+ * @ORM\Entity
+ */
+class MovieTypeAssignments
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="movie_type_assignment_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $movieTypeAssignmentId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="movie_type_identifier", type="string", nullable=false)
+     */
+    private $movieTypeIdentifier;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start_date", type="date", nullable=true)
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end_date", type="date", nullable=true)
+     */
+    private $endDate;
+
+    /**
+     * @var \Application\Entity\Movies
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Movies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="movie_id", referencedColumnName="movie_id")
+     * })
+     */
+    private $movie;
+
+
+}
+
