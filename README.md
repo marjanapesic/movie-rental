@@ -89,6 +89,7 @@ Content `{"error":{"message":"Resource not found."}}` or
     {"error":{"message":"Movie does not exist"}}
 
 Code **401** Unauthorised
+Code **500** Internal server error
  
 Sample Call:
 
@@ -120,6 +121,7 @@ or:
 
 Error Response:
 code **401** Unauthorised
+ Code **500** Internal server error
  
 Sample Call:
 
@@ -162,7 +164,8 @@ Code **404**
     {"error":{"message":"Movie title cannot be empty."}}
     {"error":{"message":"Number of copies cannot be empty."}}
 
-code 401 Unauthorised
+code **401** Unauthorised
+Code **500** Internal server error
  
 Sample Call:
 
@@ -199,6 +202,7 @@ Code **404**
     {"error":{"message":"Number of copies cannot be lower than number of movies rented at the moment (1).”}}
  
 code **401** Unauthorised
+Code **500** Internal server error
  
 Sample Call:
 
@@ -237,6 +241,7 @@ code **404**
     {"error":{"message":"Wrong movie id."}}
 
 code **401** Unauthorised
+Code **500** Internal server error
  
  
 Sample Call:
@@ -274,7 +279,7 @@ code **404**
     {“error":{"message":"Missing end date."}}
     {"error":{"message":"Wrong date format."}}
     {"error":{"message":"End date cannot be before today."}}
-
+Code **500** Internal server error
  
 Sample Call:
 **curl -H 'Authorization: Basic dGVzdEB0ZXN0LmNvbTp0ZXN0dGVzdA==' -H "Content-type: application/json" 'http://casumotest/movie-price/ids/11,12/end-date/2016-08-17'**
@@ -312,7 +317,7 @@ code **404**
     {"error":{"message":"Missing price amount or currency."}}
     {"error":{"message":"Movie not available.”}}
     {"error":{"message":"Received and calculated prices do not match”}}
-
+Code **500** Internal server error
  
  
 Sample Call:
@@ -346,7 +351,7 @@ code **404**
     {"error":{"message":"Missing rental identifiers."}}
     {"error":{"message":"Invalid identifier."}}
     {"error":{"message":"Movie is already returned."}}
-
+Code **500** Internal server error
  
 Sample Call:
 
