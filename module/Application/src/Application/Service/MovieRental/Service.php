@@ -48,11 +48,6 @@ class Service implements MovieRentalInterface, ServiceLocatorAwareInterface {
             }
 
 
-            /** @var \Application\Service\BonusPoints\Service $bonusPointsService */
-            $bonusPointsService = $this->getServiceLocator()->get('Application\Service\BonusPoints\Service');
-            $bonusPoints = $bonusPointsService->calculateBonusPoints($movie, $start, $end);
-
-
             $movieRental = new MovieRental();
 
             $movieRental->setMovie($movie);
@@ -61,6 +56,12 @@ class Service implements MovieRentalInterface, ServiceLocatorAwareInterface {
             $movieRental->setEndDate($end);
             $movieRental->setPriceAmount($price->getAmount());
             $movieRental->setPriceCurrency($price->getCurrency());
+            
+            
+            /** @var \Application\Service\BonusPoints\Service $bonusPointsService */
+            $bonusPointsService = $this->getServiceLocator()->get('Application\Service\BonusPoints\Service');
+            $bonusPoints = $bonusPointsService->calculateBonusPoints($movieRental);
+            
             $movieRental->setBonusPoints($bonusPoints);
 
 
