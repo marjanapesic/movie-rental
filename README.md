@@ -44,7 +44,7 @@ Movie type is assigned after movie is added to system and there is no support fo
 				]
 		    ]
 	    ]
-    ]
+    ];
 
 3.Create new database specified in doctrine.local.php configuration under dbname.
 
