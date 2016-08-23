@@ -28,7 +28,7 @@ Movie type is assigned after movie is added to system and there is no support fo
 
 1.Install dependencies with composer.
 
-2.Create new file under config/autoload called doctrine.local.php:
+2.Create new file under config/autoload called doctrine.local.php (set mysql credentials and specify database name that will be used):
 
     <?php //config/autoload/doctrine.local.php
     return [ 
@@ -46,13 +46,27 @@ Movie type is assigned after movie is added to system and there is no support fo
 	    ]
     ];
 
-3.Create new database specified in doctrine.local.php configuration under dbname.
+3.Create new database specified in doctrine.local.php configuration under dbname. 
 
 4.To get database tables created run 
 
     ./vendor/doctrine/doctrine-module/bin/doctrine-module orm:schema-tool:create
 
-5.Set web app running on your local server.
+5.Run web server. Example how to configure virtual host for Apache server (2.4 or above):
+>     <VirtualHost *:80>
+>          ServerName casumotest
+>          DocumentRoot /Users/marjana/PhpstormProjects/casumotest/movie-rental/public
+>          <Directory /Users/marjana/PhpstormProjects/casumotest/movie-rental/public/>
+>              DirectoryIndex index.php
+>              AllowOverride All
+>              RewriteEngine On
+>              Require all granted
+>              RewriteCond %{REQUEST_FILENAME} !-f
+>              RewriteRule ^ index.php [NC,L]
+>          </Directory>
+>      </VirtualHost>
+
+More information could be found here: https://framework.zend.com/manual/2.4/en/user-guide/skeleton-application.html
 
 
 If all steps are finished successfully:
